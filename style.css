@@ -1,0 +1,106 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: black;
+}
+.gallery{
+    margin: 50px auto;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border: 1px solid white;
+    position: relative;
+
+
+
+}
+.slider{
+    border: 1px solid white;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    width: 752px;
+    height: 500px;
+    background-size: contain;
+}
+.list{
+    overflow: hidden;
+    position: relative;
+    height: 100px;
+}
+
+.image-list{
+    display: flex;
+    transition: 0.7s;
+    
+}
+.image-list li {
+    width: 150px;
+    height: 100px;
+    background-position: center;
+    background-size: cover;
+    flex-shrink: 0;
+    /* border: 1px solid white; */
+    outline: 1px solid white;
+    outline-offset: -1px;
+    cursor: pointer;
+    opacity: .3;
+
+}
+.active{
+    opacity: 1 !important;
+}
+.lba {
+    color: white;
+    font-size: 50px;
+    opacity: .3;
+    text-shadow: 0 2px 4px black;
+    position: absolute;
+    top: 39%;
+    transform: rotate(180deg);
+    left: 10px;
+    cursor: pointer;
+
+
+}
+.rba{
+    color: white;
+    font-size: 50px;
+    opacity: .2;
+    text-shadow: 0 2px 4px black;
+    position: absolute;
+    top: 39%;
+    right: 10px;
+    cursor: pointer;
+
+}
+.rba:hover,.lba:hover{
+    opacity: 1;
+    cursor: pointer;
+
+}
+.rsa{
+    color: white;
+    position: absolute;
+    top: 25px;
+    right: 10px;
+    font-size: 30px;
+    cursor: pointer;
+
+
+}
+.lsa{
+    transform: rotate(180deg);
+    color: white;
+    position: absolute;
+    top: 30px;
+    left: 10px;
+    font-size: 30px;
+    cursor: pointer;
+
+
+}
+.image-list{
+    position: absolute;
+}
