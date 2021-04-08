@@ -72,25 +72,23 @@ function get_list(images) {
   });
 
   $left_big_arrow.addEventListener("click", () => {
-    // $image_listPosition = $image_listPosition + $images_width;
-    // if ($image_listPosition > 0) {
-    //   $image_listPosition = -($image_listWidth - $images_width * 8)+150;
-    // }
-    // $image_list.style.left = $image_listPosition + "px";
     if (prev <= 0) {
       prev = 0;
       activeImage($images.length - 1, $images);
     } else {
       activeImage(prev - 1, $images);
     }
-    -($image_listPosition = prev * $images_width);
-    if ($image_listPosition >= $image_listWidth) {
-      -($image_listPosition = -(prev * $images_width)) + "px";
+    $image_listPosition = -(prev * $images_width);
+    if (
+      $image_listPosition > -$image_listWidth &&
+      $image_listPosition < -$image_listWidth + $images_width * 5
+    ) {
+      $image_listPosition = -$image_listWidth + $images_width * 5
+      $image_list.style.left = $image_listPosition + "px";
     }
-    if ($image_listPosition >= $image_listWidth + $images_width) {
-      -($image_listPosition = prev * $images_width);
+    if($image_listPosition > -$image_listWidth +$images_width*5){
+      $image_list.style.left = $image_listPosition + 'px'
     }
-    $image_list.style.left = -$image_listPosition + "px";
   });
 
   $right_big_arrow.addEventListener("click", () => {
@@ -100,12 +98,11 @@ function get_list(images) {
     } else {
       activeImage(prev + 1, $images);
     }
-
     $image_listPosition = prev * $images_width;
-    if ($image_listPosition >= $image_listWidth) {
+    if ($image_listPosition <= $image_listWidth - 5 * $images_width) {
       $image_listPosition = prev * $images_width;
+      $image_list.style.left = -$image_listPosition + "px";
     }
-    $image_list.style.left = -$image_listPosition + "px";
   });
   function activeImage(index, list) {
     $slider.style.backgroundImage = list[index].style.backgroundImage;
@@ -117,13 +114,3 @@ function get_list(images) {
   }
 }
 load();
-// $image_listPosition = $image_listPosition - $images_width;
-// if ($image_listPosition == -image_listWidth) {
-//   $image_listPosition = 0;
-// }
-// if ($image_listPosition > -image_listWidth + $images_width * 4) {
-//   $image_list.style.left = $image_listPosition + "px";
-// }
-// if ($image_listPosition > image_listWidth){
-//   $image_listPosition
-// }
